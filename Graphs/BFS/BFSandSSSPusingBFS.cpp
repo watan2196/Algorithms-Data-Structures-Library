@@ -63,3 +63,9 @@ void bfs(int node)
 		}
 	}
 }
+//Problems:
+////https://www.interviewbit.com/problems/rotten-oranges/
+//https://www.spoj.com/problems/PPATH/
+//https://www.interviewbit.com/problems/capture-regions-on-board/
+//https://www.interviewbit.com/problems/distance-of-nearest-cell-having-1-in-a-binary-matrix/
+//https://www.interviewbit.com/problems/shortest-distance-from-all-buildings/
