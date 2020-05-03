@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define endl "\n"
 #define int long long
@@ -68,15 +67,5 @@ void dijkstra(int src)
 	for(int i=1;i<=n;i++)
 		cout<<dis[i]<<" ";
 }
-
-//6
-//8
-//1 2 6
-//1 3 4
-//2 3 1
-//2 5 6
-//3 4 2
-//5 4 3
-//5 6 1
-//4 6 11
-//1
+// Problems:
+// https://www.interviewbit.com/problems/dijsktra/
