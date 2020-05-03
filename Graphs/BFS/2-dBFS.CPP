@@ -6,7 +6,7 @@ using namespace std;
 #define int long long
 #define ONLINE_JUDGE
 //2-D bfs or Multiple source bfs
-//https://www.interviewbit.com/problems/rotten-oranges/
+
 const int N=1e5+5;
 const int mod=1e9+7;
 
@@ -99,3 +99,5 @@ bool inside(int r,int c,int n,int m)
 {
 	return ((r>=0 && r<n) && (c>=0 && c<m));
 }
+//Problems://https://www.interviewbit.com/problems/rotten-oranges/
+//
