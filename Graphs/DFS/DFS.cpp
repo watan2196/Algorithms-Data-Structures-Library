@@ -45,3 +45,7 @@ void dfs(int node)
 		dfs(v);
 	}
 }
+//Problems:
+//https://www.spoj.com/problems/PT07Y/
+//https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/practice-problems/algorithm/bishu-and-his-girlfriend/
+//https://www.spoj.com/problems/PT07Z/
