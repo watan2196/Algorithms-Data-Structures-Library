@@ -64,5 +64,3 @@ bool dfs(int node,int c)
 	return true;	
 }
 
-// problems:
-//https://www.spoj.com/problems/BUGLIFE/

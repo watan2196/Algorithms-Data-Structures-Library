@@ -52,9 +52,3 @@ void dfs(int node)
 		dfs(v);
 	}
 }
-//Problems:
-//https://www.hackerearth.com/problem/algorithm/connected-components-in-a-graph/
-//https://www.codechef.com/problems/FIRESC
-//https://www.spoj.com/problems/CAM5/
-//https://www.interviewbit.com/problems/black-shapes/
-//https://www.interviewbit.com/problems/number-of-islands/

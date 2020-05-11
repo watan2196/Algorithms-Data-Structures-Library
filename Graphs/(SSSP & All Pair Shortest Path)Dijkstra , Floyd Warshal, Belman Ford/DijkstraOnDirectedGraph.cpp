@@ -28,7 +28,6 @@ int32_t main()
 		{
 			cin>>a>>b>>wt;
 			g[a].push_back({b,wt});
-			g[b].push_back({a,wt});
 		}
 	   
 		cin>>src;
@@ -68,5 +67,5 @@ void dijkstra(int src)
 	for(int i=1;i<=n;i++)
 		cout<<dis[i]<<" ";
 }
-
-
+//problems:
+//https://www.interviewbit.com/problems/shortest-path-in-simple-graph/
