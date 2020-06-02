@@ -1,0 +1,132 @@
+
+
+//Xor tree
+//
+//Given a rooted tree of A nodes rooted at node 0. Each node has some value. An array of integer B is given which describes the value at the node i.e. node i has value B[i].
+//
+//A matrix C of size M x 2 is given describing the edges of the tree i.e. there is an edge between C[i][0] and C[i][1] in the tree.
+//
+//Xor sum of node i is defined as the xor of values of all the nodes in the subtree of i.
+//
+//You are required to find an array of integer D of size 2 where
+//
+//    D[i][0]: Max Xor Sum among all nodes.
+//    D[i][1]: Count of nodes which have maximum xorsum.
+//
+//Find and return the integer array D.
+//
+//
+//Input Format
+//
+//The first argument given is an integer A.
+//The second argument given is an integer array B.
+//The third argument given is an integer matrix C.
+//
+//Output Format
+//
+//Return an array of integer D.
+//
+//Constraints
+//
+//1 <= A <= 100000
+//0 <= B[i] <= 10^9
+//0 <= C[i][0], C[i][1] < A
+//
+//For Example
+//
+//Input 1:
+//    A = 5
+//    B = [11, 10, 12, 12, 7]
+//    C = [   [0, 4]
+//            [1, 0]
+//            [1, 3]
+//            [3, 2]  ]
+//Output 1:
+//    [12, 1]
+//    xor sum of node 0: 6
+//    xor sum of node 1: 10
+//    xor sum of node 2: 12
+//    xor sum of node 3: 0
+//    xor sum of node 4: 7
+//    max xor sum is 12 and count of such nodes is 1.
+//
+//Input 2:
+//    A = 5
+//    B = [0, 0, 0, 0, 0]
+//    C = [   [1, 3]
+//            [1, 0]
+//            [0, 4]
+//            [3, 2]  ]
+//Output 2:
+//    [0, 5]
+//    xor sum of node 0: 0
+//    xor sum of node 1: 0
+//    xor sum of node 2: 0
+//    xor sum of node 3: 0
+//    xor sum of node 4: 0
+//    max xor sum is 0 and count of such nodes is 5.
+
+
+
+const int N=1e6;
+vector<int>g[N];
+int vis[N];
+int xorsum[N];
+int val[N];
+map<int,int>mp;
+int dfs(int node)
+{
+    vis[node]=1;
+    int cxor=val[node];
+    for(int v:g[node])
+    {
+        if(!vis[v])
+        cxor^=dfs(v);
+    }
+    mp[cxor]++;
+    xorsum[node]=cxor;
+    return cxor;
+}
+vector<int> Solution::solve(int A, vector<int> &B, vector<vector<int> > &C) {
+    
+    int n=A;
+    int m=C.size();
+    mp.clear();
+    
+    for(int i=0;i<n;i++)
+    {
+        g[i].clear();
+        vis[i]=0;
+    }
+    
+    for(int i=0;i<C.size();i++)
+    {
+        g[C[i][0]].push_back(C[i][1]);
+        g[C[i][1]].push_back(C[i][0]);
+    }
+    
+    for(int i=0;i<B.size();i++)
+    val[i]=B[i];
+    
+    int xr=dfs(0);
+    
+    xorsum[0]=xr;
+    
+    int mx=INT_MIN;
+    int ans;
+    for(auto it:mp)
+    {
+        if(it.first > mx)
+        {
+            mx=it.first;
+            ans=it.second;
+        }
+    }
+    
+   
+    vector<int>res;
+    res.push_back(mx);
+    res.push_back(ans);
+    
+    return res;
+}
