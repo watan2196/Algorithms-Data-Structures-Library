@@ -14,7 +14,7 @@ vector<int>g[N];
 int vis[N];
 int stk[N];
 bool dfs(int node);
-int HasCycle();
+bool HasCycle();
 int32_t main()
 {
 	#ifndef ONLINE_JUDGE
@@ -30,20 +30,19 @@ int32_t main()
 	   		g[a].push_back(b);
 		}
 		
-		int ans=HasCycle();
+		bool ans=HasCycle();
 		cout<<ans<<endl;	
 }
-int HasCycle()
+bool HasCycle()
 {
-	int cnt=0;
 	for(int i=1;i<=n;i++)
 	{
 		if(!vis[i] && dfs(i))
-		cnt++;
+		return 1;
 	}
-	return cnt;
+	return 0;
 }
-int dfs(int node)
+bool dfs(int node)
 {
 	if(vis[node] == 1)
 	return 1;
@@ -53,7 +52,8 @@ int dfs(int node)
 	vis[node]=1;
 	for(int v:g[node])
 	{
-		cnt+=dfs(v);
+		if(dfs(v))
+		return 1;
 	}
 	vis[node]=2;
 	return 0;

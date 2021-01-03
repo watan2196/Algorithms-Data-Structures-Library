@@ -70,3 +70,4 @@ void O_1_BFS(int src)
 	cout<<dis[i]<<" ";
 	
 }
+//https://www.interviewbit.com/problems/shortest-distance-in-a-graph-with-two-different-weights/
