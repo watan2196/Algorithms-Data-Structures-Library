@@ -43,10 +43,10 @@ int32_t main()
 		   {
 		   	cin>>x>>y;
 		    
-			if((tin[x] < tin[y] && tout[x] < tout[y]) || (tin[x] > tin[y] && tout[x] > tout[y]))
-			cout<<0<<endl;
+			if((tin[y] > tin[x] && tin[y] < tout[x]) && (tout[y] > tin[x] && tout[y] < tout[x]))
+			cout<<1<<endl;
 			else
-			cout<<1<<endl;	
+			cout<<0<<endl;	
 	       } 
 	   }
 
